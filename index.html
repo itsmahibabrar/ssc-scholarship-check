@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC বোর্ড বৃত্তি ফলাফল ও স্কুল বিশ্লেষণ ২০২৬</title>
+    <style>
+        :root {
+            --primary: #006a4e;
+            --primary-hover: #00523d;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 20px 16px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        header {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+        }
+
+        header h1 {
+            font-size: clamp(22px, 4vw, 30px);
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .board-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .board-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .board-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .status-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 9999px;
+        }
+
+        .status-active {
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .status-pending {
+            background-color: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            border-radius: calc(var(--radius) - 4px);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 106, 78, 0.05);
+        }
+
+        .board-card.disabled {
+            opacity: 0.65;
+        }
+
+        .app-footer {
+            margin-top: 10px;
+            padding: 20px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .disclaimer {
+            background-color: #fffbeb;
+            border: 1px solid #fef08a;
+            color: #713f12;
+            padding: 12px;
+            border-radius: calc(var(--radius) - 4px);
+            margin-bottom: 16px;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .developer-credit {
+            font-size: 13px;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .developer-credit a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .developer-credit a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            margin: 0 6px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>SSC বোর্ড বৃত্তি ফলাফল ও স্কুল বিশ্লেষণ ২০২৬</h1>
+        <p>আপনার শিক্ষা বোর্ড নির্বাচন করুন এবং রোল নম্বর অথবা স্কুলভিত্তিক ড্যাশবোর্ড দেখুন</p>
+    </header>
+
+    <main>
+        <h2 class="section-title">শিক্ষা বোর্ডসমূহ</h2>
+        <div class="board-grid">
+            
+            <div class="board-card">
+                <div class="board-header">
+                    <span class="board-name">Sylhet Board (সিলেট)</span>
+                    <span class="status-badge status-active">প্রকাশিত</span>
+                </div>
+                <div class="action-buttons">
+                    <a href="sylhet.html" class="btn btn-primary">ফলাফল খুঁজুন</a>
+                    <a href="sylhet-dash.html" class="btn btn-outline">স্কুল ড্যাশবোর্ড</a>
+                </div>
+            </div>
+
+            <div class="board-card">
+                <div class="board-header">
+                    <span class="board-name">Chattogram Board (চট্টগ্রাম)</span>
+                    <span class="status-badge status-active">প্রকাশিত</span>
+                </div>
+                <div class="action-buttons">
+                    <a href="chattogram.html" class="btn btn-primary">ফলাফল খুঁজুন</a>
+                    <a href="chattogram-dash.html" class="btn btn-outline">স্কুল ড্যাশবোর্ড</a>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Dhaka Board (ঢাকা)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Rajshahi Board (রাজশাহী)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Barishal Board (বরিশাল)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Comilla Board (কুমিল্লা)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Dinajpur Board (দিনাজপুর)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Jashore Board (যশোর)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+            <div class="board-card disabled">
+                <div class="board-header">
+                    <span class="board-name">Mymensingh Board (ময়মনসিংহ)</span>
+                    <span class="status-badge status-pending">শীঘ্রই আসছে</span>
+                </div>
+                <div class="action-buttons">
+                    <span class="btn btn-outline" style="cursor: not-allowed; border-color: var(--border); color: var(--text-muted);">অপেক্ষমান</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="disclaimer">
+            <strong>⚠ সতর্কবার্তা / Disclaimer:</strong> এটি কোনো অফিশিয়াল সরকারি ওয়েবসাইট নয়। শিক্ষা বোর্ডের প্রকাশিত পিডিএফ (PDF) থেকে ডাটা প্রসেস করে স্বয়ংক্রিয়ভাবে প্রদর্শন করা হচ্ছে। ডাটার নির্ভুলতা নিশ্চিত করার সর্বোচ্চ চেষ্টা করা হয়েছে, তবে যেকোনো চূড়ান্ত প্রয়োজনে সংশ্লিষ্ট শিক্ষা বোর্ডের অফিশিয়াল গেজেট ও মূল পিডিএফ অনুসরণ করার জন্য অনুরোধ করা হচ্ছে।
+        </div>
+        <div class="developer-credit">
+            Crafted with ❤️ by <strong>Mahib Abrar</strong> | Student & Independent Developer
+        </div>
+        <div class="footer-links">
+            <a href="https://facebook.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">Facebook</a> • 
+            <a href="https://github.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+            <a href="mailto:itsmahib.abrar@gmail.com">Report Bug / Feedback</a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
