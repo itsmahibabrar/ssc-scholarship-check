@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC-Chattogram Board স্কুলভিত্তিক বৃত্তি বিশ্লেষণ - ২০২৬</title>
+    <style>
+        :root {
+            --primary: #006a4e;
+            --primary-hover: #00523d;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --ring: rgba(0, 106, 78, 0.2);
+            --radius: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: clamp(20px, 4vw, 26px);
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .card {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: calc(var(--radius) - 2px);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .card h3 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-top: 4px;
+            font-weight: 700;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) - 2px);
+            font-size: 14px;
+            color: var(--text);
+            background-color: #ffffff;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--ring);
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: calc(var(--radius) - 2px);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-tp {
+            background-color: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .badge-gen {
+            background-color: #e0f2fe;
+            color: #075985;
+            border: 1px solid #bae6fd;
+        }
+
+        @media (max-width: 640px) {
+            .table-responsive {
+                border: none;
+                overflow-x: visible;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                background: #ffffff !important;
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                margin-bottom: 12px;
+                padding: 12px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px dashed var(--border);
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 13px;
+                padding-right: 12px;
+            }
+        }
+
+        .app-footer {
+            margin-top: 10px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .disclaimer {
+            background-color: #fffbeb;
+            border: 1px solid #fef08a;
+            color: #713f12;
+            padding: 12px;
+            border-radius: calc(var(--radius) - 2px);
+            margin-bottom: 16px;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .developer-credit {
+            font-size: 13px;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .developer-credit a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .developer-credit a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            margin: 0 6px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>SSC Chattogram Board স্কুলভিত্তিক বৃত্তি বিশ্লেষণ (Dashboard)</h1>
+        <p>Sylhet Board কোন স্কুল থেকে কতজন বৃত্তি পেয়েছে তার তালিকা</p>
+    </header>
+
+    <div class="stats-grid">
+        <div class="card">
+            <p>মোট বৃত্তিপ্রাপ্ত</p>
+            <h3 id="statTotalStudents">০</h3>
+        </div>
+        <div class="card">
+            <p>মোট স্কুল</p>
+            <h3 id="statTotalSchools">০</h3>
+        </div>
+        <div class="card">
+            <p>ট্যালেন্টপুল বৃত্তি</p>
+            <h3 id="statTotalTalentpool">০</h3>
+        </div>
+        <div class="card">
+            <p>সাধারণ বৃত্তি</p>
+            <h3 id="statTotalGeneral">০</h3>
+        </div>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="schoolSearch" placeholder="স্কুলের নাম লিখে খুঁজুন..." oninput="onSearchInput()">
+    </div>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>র‍্যাংক</th>
+                    <th>স্কুলের নাম</th>
+                    <th>ট্যালেন্টপুল</th>
+                    <th>সাধারণ</th>
+                    <th>মোট বৃত্তি</th>
+                </tr>
+            </thead>
+            <tbody id="dashTableBody">
+                <tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 32px 16px;">ডাটা লোড হচ্ছে...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="app-footer">
+        <div class="disclaimer">
+            <strong>⚠ সতর্কবার্তা / Disclaimer:</strong> এটি কোনো অফিশিয়াল সরকারি ওয়েবসাইট নয়। শিক্ষা বোর্ডের প্রকাশিত পিডিএফ (PDF) থেকে ডাটা প্রসেস করে স্বয়ংক্রিয়ভাবে প্রদর্শন করা হচ্ছে। ডাটার নির্ভুলতা নিশ্চিত করার সর্বোচ্চ চেষ্টা করা হয়েছে, তবে যেকোনো চূড়ান্ত প্রয়োজনে সংশ্লিষ্ট শিক্ষা বোর্ডের অফিশিয়াল গেজেট ও মূল পিডিএফ অনুসরণ করার জন্য অনুরোধ করা হচ্ছে।
+        </div>
+        <div class="developer-credit">
+            Crafted with ❤️ by <strong>Mahib Abrar</strong> | Student & Independent Developer
+        </div>
+        <div class="footer-links">
+            <a href="https://facebook.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">Facebook</a> • 
+            <a href="https://github.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+            <a href="mailto:itsmahib.abrar@gmail.com">Report Bug / Feedback</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    let allSchools = [];
+    let debounceTimer = null;
+
+    function toBengaliNumerals(str) {
+        if (str === undefined || str === null) return '০';
+        const enToBn = {'0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯'};
+        return String(str).replace(/[0-9]/g, match => enToBn[match]);
+    }
+
+    fetch('chattogram-dash.json')
+        .then(res => {
+            if (!res.ok) throw new Error('HTTP status ' + res.status);
+            return res.json();
+        })
+        .then(data => {
+            if (data.summary) {
+                document.getElementById('statTotalStudents').innerText = toBengaliNumerals(data.summary.total_students);
+                document.getElementById('statTotalSchools').innerText = toBengaliNumerals(data.summary.total_schools);
+                document.getElementById('statTotalTalentpool').innerText = toBengaliNumerals(data.summary.total_talentpool);
+                document.getElementById('statTotalGeneral').innerText = toBengaliNumerals(data.summary.total_general);
+            }
+
+            allSchools = Array.isArray(data.top_schools) ? data.top_schools : [];
+            renderDashTable(allSchools);
+        })
+        .catch(() => {
+            document.getElementById('dashTableBody').innerHTML = '<tr><td colspan="5" style="text-align:center; color:#e11d48; padding: 32px 16px;">এনালাইসিস ডাটা ফাইল পাওয়া যায়নি।</td></tr>';
+        });
+
+    function renderDashTable(schools) {
+        const tbody = document.getElementById('dashTableBody');
+        tbody.innerHTML = '';
+
+        if (!schools || schools.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color: var(--text-muted); padding: 32px 16px;">কোনো স্কুলের নাম পাওয়া যায়নি।</td></tr>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        schools.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td data-label="র‍্যাংক"><b>#${toBengaliNumerals(index + 1)}</b></td>
+                <td data-label="স্কুলের নাম">${item.school || '-'}</td>
+                <td data-label="ট্যালেন্টপুল"><span class="badge badge-tp">${toBengaliNumerals(item.talentpool)}</span></td>
+                <td data-label="সাধারণ"><span class="badge badge-gen">${toBengaliNumerals(item.general)}</span></td>
+                <td data-label="মোট বৃত্তি"><b>${toBengaliNumerals(item.total)}</b></td>
+            `;
+            fragment.appendChild(tr);
+        });
+
+        tbody.appendChild(fragment);
+    }
+
+    function onSearchInput() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(filterSchools, 200);
+    }
+
+    function filterSchools() {
+        const query = document.getElementById('schoolSearch').value.trim().toLowerCase();
+        const filtered = allSchools.filter(s => s.school && s.school.toLowerCase().includes(query));
+        renderDashTable(filtered);
+    }
+</script>
+
+</body>
+</html>
