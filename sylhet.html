@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬</title>
+    <style>
+        :root {
+            --primary: #006a4e;
+            --primary-hover: #00523d;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --ring: rgba(0, 106, 78, 0.2);
+            --radius: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: clamp(20px, 4vw, 26px);
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .search-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 576px) {
+            .search-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) - 2px);
+            font-size: 14px;
+            color: var(--text);
+            background-color: #fff;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--ring);
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: calc(var(--radius) - 2px);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-talentpool {
+            background-color: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .badge-general {
+            background-color: #e0f2fe;
+            color: #075985;
+            border: 1px solid #bae6fd;
+        }
+
+        @media (max-width: 640px) {
+            .table-responsive {
+                border: none;
+                overflow-x: visible;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                background: #ffffff !important;
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                margin-bottom: 12px;
+                padding: 12px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px dashed var(--border);
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 13px;
+                padding-right: 12px;
+            }
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 8px;
+        }
+
+        .pagination-info {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .pagination-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: calc(var(--radius) - 4px);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: var(--primary-hover);
+        }
+
+        button:disabled {
+            background-color: #e2e8f0;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 32px 16px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .app-footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .disclaimer {
+            background-color: #fffbeb;
+            border: 1px solid #fef08a;
+            color: #713f12;
+            padding: 12px;
+            border-radius: calc(var(--radius) - 2px);
+            margin-bottom: 16px;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .developer-credit {
+            font-size: 13px;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .developer-credit a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .developer-credit a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            margin: 0 6px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬</h1>
+        <p>রোল নম্বর বা নাম দিয়ে দ্রুত স্কলারশিপের তথ্য খুঁজুন</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="রোল অথবা নাম দিয়ে সার্চ করুন..." oninput="onSearchInput()">
+        <select id="typeFilter" onchange="handleSearch()">
+            <option value="ALL">সকল বৃত্তি</option>
+            <option value="TALENTPOOL">মেধা বৃত্তি (Talentpool)</option>
+            <option value="GENERAL">সাধারণ বৃত্তি (General)</option>
+        </select>
+    </div>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>রোল</th>
+                    <th>নাম</th>
+                    <th>স্কুল/ইনস্টিটিউট</th>
+                    <th>বৃত্তির ধরন</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="4" class="no-data">ডাটা লোড হচ্ছে...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination-container">
+        <div class="pagination-info" id="paginationInfo">
+            পৃষ্ঠা ০ / ০ (মোট: ০)
+        </div>
+        <div class="pagination-controls">
+            <button id="prevBtn" onclick="changePage(-1)" disabled>পূর্ববর্তী</button>
+            <button id="nextBtn" onclick="changePage(1)" disabled>পরবর্তী</button>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <div class="disclaimer">
+            <strong>⚠ সতর্কবার্তা / Disclaimer:</strong> এটি কোনো অফিশিয়াল সরকারি ওয়েবসাইট নয়। শিক্ষা বোর্ডের প্রকাশিত পিডিএফ (PDF) থেকে ডাটা প্রসেস করে স্বয়ংক্রিয়ভাবে প্রদর্শন করা হচ্ছে। ডাটার নির্ভুলতা নিশ্চিত করার সর্বোচ্চ চেষ্টা করা হয়েছে, তবে যেকোনো চূড়ান্ত প্রয়োজনে সংশ্লিষ্ট শিক্ষা বোর্ডের অফিশিয়াল গেজেট ও মূল পিডিএফ অনুসরণ করার জন্য অনুরোধ করা হচ্ছে।
+        </div>
+        <div class="developer-credit">
+            Crafted with ❤️ by <strong>Mahib Abrar</strong> | Student & Independent Developer
+        </div>
+        <div class="footer-links">
+            <a href="https://facebook.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">Facebook</a> • 
+            <a href="https://github.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+            <a href="mailto:itsmahib.abrar@gmail.com">Report Bug / Feedback</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    let rawData = [];
+    let filteredData = [];
+    let currentPage = 1;
+    const rowsPerPage = 15;
+    let debounceTimer = null;
+
+    fetch('sylhet.json')
+        .then(response => {
+            if (!response.ok) throw new Error('HTTP status ' + response.status);
+            return response.json();
+        })
+        .then(data => {
+            rawData = Array.isArray(data) ? data : Object.values(data).flat();
+            filteredData = rawData;
+            renderTable();
+        })
+        .catch(() => {
+            document.getElementById('tableBody').innerHTML = 
+                '<tr><td colspan="4" class="no-data" style="color:#e11d48;">ডাটা ফাইল লোড করা সম্ভব হয়নি।</td></tr>';
+        });
+
+    function toBengaliNumerals(str) {
+        const enToBn = {'0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯'};
+        return String(str).replace(/[0-9]/g, match => enToBn[match]);
+    }
+
+    function onSearchInput() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(handleSearch, 200);
+    }
+
+    function handleSearch() {
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        const selectedType = document.getElementById('typeFilter').value;
+
+        filteredData = rawData.filter(item => {
+            const roll = item && item.RO ? item.RO.toString().toLowerCase() : '';
+            const name = item && item.NA ? item.NA.toLowerCase() : '';
+            const type = item && item.TY ? item.TY.toUpperCase() : 'GENERAL';
+
+            const matchesQuery = !query || roll.includes(query) || name.includes(query);
+            const matchesType = (selectedType === 'ALL') || (type === selectedType);
+
+            return matchesQuery && matchesType;
+        });
+
+        currentPage = 1;
+        renderTable();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+
+        if (filteredData.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" class="no-data">কোনো তথ্য পাওয়া যায়নি।</td></tr>';
+            document.getElementById('paginationInfo').innerText = 'পৃষ্ঠা ০ / ০ (মোট: ০)';
+            document.getElementById('prevBtn').disabled = true;
+            document.getElementById('nextBtn').disabled = true;
+            return;
+        }
+
+        const startIndex = (currentPage - 1) * rowsPerPage;
+        const endIndex = startIndex + rowsPerPage;
+        const pageItems = filteredData.slice(startIndex, endIndex);
+
+        const fragment = document.createDocumentFragment();
+
+        pageItems.forEach(item => {
+            const tr = document.createElement('tr');
+            const isTalentpool = item.TY && item.TY.toUpperCase() === 'TALENTPOOL';
+            const badgeClass = isTalentpool ? 'badge-talentpool' : 'badge-general';
+            const badgeText = isTalentpool ? 'Talentpool' : 'General';
+
+            tr.innerHTML = `
+                <td data-label="রোল"><b>${item.RO || '-'}</b></td>
+                <td data-label="নাম">${item.NA || '-'}</td>
+                <td data-label="ইনস্টিটিউট">${item.SC || '-'}</td>
+                <td data-label="বৃত্তির ধরন"><span class="badge ${badgeClass}">${badgeText}</span></td>
+            `;
+            fragment.appendChild(tr);
+        });
+
+        tbody.appendChild(fragment);
+
+        const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+        document.getElementById('paginationInfo').innerText = 
+            `পৃষ্ঠা ${toBengaliNumerals(currentPage)} / ${toBengaliNumerals(totalPages)} (মোট: ${toBengaliNumerals(filteredData.length)})`;
+        document.getElementById('prevBtn').disabled = currentPage === 1;
+        document.getElementById('nextBtn').disabled = currentPage >= totalPages;
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        renderTable();
+        const tableContainer = document.querySelector('.table-responsive');
+        if (tableContainer) {
+            tableContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+</script>
+
+</body>
+</html>
