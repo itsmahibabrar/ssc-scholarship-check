@@ -323,6 +323,7 @@
                     <th>নাম</th>
                     <th>স্কুল/ইনস্টিটিউট</th>
                     <th>বৃত্তির ধরন</th>
+                    <th>মার্কস</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -438,6 +439,7 @@
                 <td data-label="নাম">${item.NA || '-'}</td>
                 <td data-label="ইনস্টিটিউট">${item.SC || '-'}</td>
                 <td data-label="বৃত্তির ধরন"><span class="badge ${badgeClass}">${badgeText}</span></td>
+                <td data-label="মার্কস">${item.TM || '-'}</td>
             `;
             fragment.appendChild(tr);
         });
