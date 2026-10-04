@@ -1,4 +1,8 @@
 {
+  "credit": {
+    "source": "Board Official Notice",
+    "@data-preprocessed-and-visulaize-by": "Mahib Abrar"
+  },
   "summary": {
     "total_students": 2018,
     "total_schools": 497,
@@ -2988,5 +2992,42 @@
       "talentpool": 0,
       "general": 1
     }
-  ]
+  ],
+  "is_mark": true,
+  "is_group": true,
+  "mark_summary": {
+    "TALENTPOOL": {
+      "SCIENCE": {
+        "highest": 1221,
+        "lowest": 1165
+      },
+      "BUSINESS STUDIES": {
+        "highest": 1184,
+        "lowest": 1096
+      },
+      "HUMANITIES": {
+        "highest": 1149,
+        "lowest": 1088
+      }
+    },
+    "GENERAL": {
+      "SCIENCE": {
+        "highest": 1194,
+        "lowest": 781
+      },
+      "HUMANITIES": {
+        "highest": 1150,
+        "lowest": 832
+      },
+      "BUSINESS STUDIES": {
+        "highest": 1139,
+        "lowest": 822
+      }
+    }
+  },
+  "group_summary": {
+    "SCIENCE": 1178,
+    "BUSINESS STUDIES": 447,
+    "HUMANITIES": 393
+  }
 }
