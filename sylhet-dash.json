@@ -1,10 +1,13 @@
 {
+  "credit": {
+    "source": "Board Official Notice",
+    "@data-preprocessed-and-visulaize-by": "Mahib Abrar"
+  },
   "summary": {
     "total_students": 1164,
     "total_schools": 341,
     "total_talentpool": 109,
-    "total_general": 1055,
-    "crafted_by": "Mahib Abrar"
+    "total_general": 1055
   },
   "top_schools": [
     {
@@ -2053,5 +2056,7 @@
       "talentpool": 0,
       "general": 1
     }
-  ]
+  ],
+  "is_mark": false,
+  "is_group": false
 }
