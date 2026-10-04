@@ -1,9 +1,69 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬</title>
+    
+    <!-- SEO Primary Meta Tags -->
+    <title>SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬ | মেধা ও সাধারণ স্কলারশিপ লিস্ট</title>
+    <meta name="title" content="SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬ | মেধা ও সাধারণ স্কলারশিপ লিস্ট">
+    <meta name="description" content="সিলেট শিক্ষা বোর্ডের এসএসসি বৃত্তি ফলাফল ২০২৬ সার্চ করুন রোল নম্বর বা নাম দিয়ে। মেধা বৃত্তি (Talentpool) ও সাধারণ বৃত্তি (General) এর সম্পূর্ণ তালিকা খুঁজুন।">
+    <meta name="keywords" content="SSC Sylhet Board Scholarship Result 2026, সিলেট বোর্ড এসএসসি বৃত্তি রেজাল্ট, Sylhet Board Scholarship Merit List, SSC Scholarship Check Sylhet, SSC Scholarship Result 2026">
+    <meta name="author" content="Mahib Abrar">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://itsmahibabrar.github.io/ssc-scholarship-check/sylhet.html">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://itsmahibabrar.github.io/ssc-scholarship-check/sylhet.html">
+    <meta property="og:title" content="SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬">
+    <meta property="og:description" content="রোল নম্বর বা নাম দিয়ে সিলেট শিক্ষা বোর্ডের এসএসসি বৃত্তি (Talentpool & General) রেজাল্ট এক ক্লিকেই খুঁজুন।">
+    <meta property="og:site_name" content="SSC Scholarship Check">
+    <meta property="og:locale" content="bn_BD">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://itsmahibabrar.github.io/ssc-scholarship-check/sylhet.html">
+    <meta name="twitter:title" content="SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬">
+    <meta name="twitter:description" content="রোল নম্বর বা নাম দিয়ে সিলেট শিক্ষা বোর্ডের এসএসসি বৃত্তি (Talentpool & General) রেজাল্ট এক ক্লিকেই খুঁজুন।">
+
+    <!-- Schema.org JSON-LD Structured Data for Search Engine Indexing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SSC Sylhet বোর্ড বৃত্তি ফলাফল ২০২৬",
+      "url": "https://itsmahibabrar.github.io/ssc-scholarship-check/sylhet.html",
+      "description": "সিলেট শিক্ষা বোর্ডের এসএসসি মেধা ও সাধারণ বৃত্তির ফলাফল অনুসন্ধানের দ্রুত ও সহজ টুল।",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Person",
+        "name": "Mahib Abrar",
+        "url": "https://github.com/itsmahibabrar"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "হোম",
+        "item": "https://itsmahibabrar.github.io/ssc-scholarship-check/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "সিলেট বোর্ড বৃত্তি ফলাফল",
+        "item": "https://itsmahibabrar.github.io/ssc-scholarship-check/sylhet.html"
+      }]
+    }
+    </script>
+
     <style>
         :root {
             --primary: #006a4e;
@@ -306,55 +366,57 @@
         <p>রোল নম্বর বা নাম দিয়ে দ্রুত স্কলারশিপের তথ্য খুঁজুন</p>
     </header>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="রোল অথবা নাম দিয়ে সার্চ করুন..." oninput="onSearchInput()">
-        <select id="typeFilter" onchange="handleSearch()">
-            <option value="ALL">সকল বৃত্তি</option>
-            <option value="TALENTPOOL">মেধা বৃত্তি (Talentpool)</option>
-            <option value="GENERAL">সাধারণ বৃত্তি (General)</option>
-        </select>
-    </div>
-
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>রোল</th>
-                    <th>নাম</th>
-                    <th>স্কুল/ইনস্টিটিউট</th>
-                    <th>বৃত্তির ধরন</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                <tr>
-                    <td colspan="4" class="no-data">ডাটা লোড হচ্ছে...</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="pagination-container">
-        <div class="pagination-info" id="paginationInfo">
-            পৃষ্ঠা ০ / ০ (মোট: ০)
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="রোল অথবা নাম দিয়ে সার্চ করুন..." oninput="onSearchInput()" aria-label="রোল বা নাম দিয়ে খুঁজুন">
+            <select id="typeFilter" onchange="handleSearch()" aria-label="বৃত্তির ধরন ফিল্টার করুন">
+                <option value="ALL">সকল বৃত্তি</option>
+                <option value="TALENTPOOL">মেধা বৃত্তি (Talentpool)</option>
+                <option value="GENERAL">সাধারণ বৃত্তি (General)</option>
+            </select>
         </div>
-        <div class="pagination-controls">
-            <button id="prevBtn" onclick="changePage(-1)" disabled>পূর্ববর্তী</button>
-            <button id="nextBtn" onclick="changePage(1)" disabled>পরবর্তী</button>
+
+        <div class="table-responsive" style="margin-top: 16px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">রোল</th>
+                        <th scope="col">নাম</th>
+                        <th scope="col">স্কুল/ইনস্টিটিউট</th>
+                        <th scope="col">বৃত্তির ধরন</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="4" class="no-data">ডাটা লোড হচ্ছে...</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
+
+        <div class="pagination-container">
+            <div class="pagination-info" id="paginationInfo" aria-live="polite">
+                পৃষ্ঠা ০ / ০ (মোট: ০)
+            </div>
+            <div class="pagination-controls">
+                <button id="prevBtn" onclick="changePage(-1)" disabled aria-label="পূর্ববর্তী পৃষ্ঠা">পূর্ববর্তী</button>
+                <button id="nextBtn" onclick="changePage(1)" disabled aria-label="পরবর্তী পৃষ্ঠা">পরবর্তী</button>
+            </div>
+        </div>
+    </main>
 
     <footer class="app-footer">
-        <div class="disclaimer">
+        <aside class="disclaimer">
             <strong>⚠ সতর্কবার্তা / Disclaimer:</strong> এটি কোনো অফিশিয়াল সরকারি ওয়েবসাইট নয়। শিক্ষা বোর্ডের প্রকাশিত পিডিএফ (PDF) থেকে ডাটা প্রসেস করে স্বয়ংক্রিয়ভাবে প্রদর্শন করা হচ্ছে। ডাটার নির্ভুলতা নিশ্চিত করার সর্বোচ্চ চেষ্টা করা হয়েছে, তবে যেকোনো চূড়ান্ত প্রয়োজনে সংশ্লিষ্ট শিক্ষা বোর্ডের অফিশিয়াল গেজেট ও মূল পিডিএফ অনুসরণ করার জন্য অনুরোধ করা হচ্ছে।
-        </div>
+        </aside>
         <div class="developer-credit">
-            Crafted with ❤️ by <strong>Mahib Abrar</strong> | Student & Independent Developer
+            Crafted with ❤️ by <a href="https://github.com/itsmahibabrar" target="_blank" rel="noopener title="Mahib Abrar's GitHub Profile">Mahib Abrar</a> | Student & Independent Developer
         </div>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Social and Contact Links">
             <a href="https://facebook.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">Facebook</a> • 
             <a href="https://github.com/itsmahibabrar" target="_blank" rel="noopener noreferrer">GitHub</a> • 
             <a href="mailto:itsmahib.abrar@gmail.com">Report Bug / Feedback</a>
-        </div>
+        </nav>
     </footer>
 </div>
 
